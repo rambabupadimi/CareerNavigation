@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">CareerNavigation</string>
+    <string name="after_graduation">After graduation</string>
+    <string name="after_post_graduation">After Post-graduation</string>
+    <string name="top_colleges">Top Colleges</string>
+    <string name="after_x">After X</string>
+    <string name="after_intermediate">After XX</string>
+    <string name="top_universities">Top universities</string>
+    <string name="competitive_exams">Entrance Exams</string>
+    <string name="one_xii">XII</string>
+    <string name="one_diploma">Diploma</string>
+    <string name="one_iti">ITI</string>
+    <string name="one_paramedical_courses">Paramedical Courses</string>
+    <string name="one_computer_courses">Computer Courses</string>
+    <string name="one_seo">Seo</string>
+    <string name="one_others">Others</string>
+    <string name="two_commerce">Commerce</string>
+    <string name="two_science">Science</string>
+    <string name="two_arts">Arts</string>
+    <string name="two_technical">Technical</string>
+    <string name="two_non_technical">Non-Technical</string>
+    <string name="two_animation_and_mulitmedia"><![CDATA[two Animation & Multimedia]]></string>
+    <string name="two_creative_and_working">two Creative Writing</string>
+    <string name="two_digital_marketing">Digital Marketing</string>
+    <string name="two_seo">SEO</string>
+    <string name="two_graphic_designer_course">Graphic Designer Course</string>
+    <string name="two_webdesign_and_development_course"><![CDATA[Web Design & Development Course]]></string>
+    <string name="two_appdevelopment_and_design_course"><![CDATA[App Development & Design Course]]></string>
+    <string name="two_programming_languages">Programming Languages</string>
+
+</resources>
