@@ -12,4 +12,9 @@
         android:icon="@drawable/home_icon"
         app:showAsAction="always"
         ></item>
+
+    <item android:id="@+id/settings"
+        android:icon="@drawable/settings_icon"
+        app:showAsAction="always"
+        ></item>
 </menu>

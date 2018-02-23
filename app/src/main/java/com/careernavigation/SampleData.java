@@ -1,6 +1,10 @@
 package com.careernavigation;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,6 +18,33 @@ public class SampleData {
     public SampleData(Context context){
         this.context = context;
     }
+
+
+
+    public static void showInfoDialog(Context context) {
+        try {
+            final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            final AlertDialog alertDialog = builder.create();
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.dialog_layout, null);
+            TextView exit = (TextView) view.findViewById(R.id.exit);
+
+            exit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.setView(view);
+            alertDialog.show();
+            alertDialog.setCancelable(false);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public   ArrayList<BasicModel> getHomePageData()
     {

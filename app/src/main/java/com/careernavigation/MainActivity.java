@@ -65,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
         MenuItem home = menu.findItem(R.id.home);
         home.setVisible(false);
+
+        MenuItem settings = menu.findItem(R.id.settings);
+        settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                SampleData.showInfoDialog(MainActivity.this);
+                return false;
+            }
+        });
+
         final MenuItem myActionMenuItem = menu.findItem( R.id.action_search);
         searchView = (SearchView) myActionMenuItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CareerNavigation.iml" filepath="$PROJECT_DIR$/CareerNavigation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CareerNavigation.iml" filepath="$PROJECT_DIR$/.idea/CareerNavigation.iml" />
+      <module fileurl="file://C:\Users\PCCS-0007\Desktop\todo-dagger\CareerNavigation\CareerNavigation.iml" filepath="C:\Users\PCCS-0007\Desktop\todo-dagger\CareerNavigation\CareerNavigation.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\PCCS-0007\Desktop\todo-dagger\CareerNavigation\app\app.iml" filepath="C:\Users\PCCS-0007\Desktop\todo-dagger\CareerNavigation\app\app.iml" />
     </modules>
   </component>
 </project>

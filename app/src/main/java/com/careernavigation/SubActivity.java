@@ -105,6 +105,16 @@ public class SubActivity extends AppCompatActivity {
 
         getMenuInflater().inflate( R.menu.search_menu, menu);
 
+        MenuItem settings = menu.findItem(R.id.settings);
+        settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                SampleData.showInfoDialog(SubActivity.this);
+                return false;
+            }
+        });
+
+
         MenuItem home = menu.findItem(R.id.home);
         home.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override

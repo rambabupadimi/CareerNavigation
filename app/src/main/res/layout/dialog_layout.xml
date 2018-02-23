@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#ddd"></View>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Book Mark"
+        android:padding="12dp"
+        android:textSize="16sp"
+
+        android:gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#ddd"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rate App"
+        android:padding="12dp"
+        android:textSize="16sp"
+
+        android:gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#ddd"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:padding="12dp"
+        android:textSize="16sp"
+
+        android:gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#ddd"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:textSize="16sp"
+
+        android:padding="12dp"
+        android:gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="#ddd"></View>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:padding="12dp"
+        android:textSize="16sp"
+
+        android:id="@+id/exit"
+        android:gravity="center_horizontal"/>
+
+
+</LinearLayout>
