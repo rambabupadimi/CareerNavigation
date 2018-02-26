@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.careernavigation">
+    package="com.educate">
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,8 @@
         <activity android:name=".SubActivity" />
         <activity android:name=".SubOneActivity" />
         <activity android:name=".SubTwoActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".AboutUsActivity"></activity>
     </application>
 
 </manifest>

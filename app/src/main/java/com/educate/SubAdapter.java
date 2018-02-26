@@ -1,4 +1,4 @@
-package com.careernavigation;
+package com.educate;
 
 /**
  * Created by Ramu on 11-02-2018.

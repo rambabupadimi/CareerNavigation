@@ -1,4 +1,4 @@
-package com.careernavigation;
+package com.educate;
 
 import android.graphics.drawable.Drawable;
 

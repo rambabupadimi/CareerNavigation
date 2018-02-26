@@ -1,4 +1,4 @@
-package com.careernavigation;
+package com.educate;
 
 import android.content.Intent;
 import android.os.Handler;

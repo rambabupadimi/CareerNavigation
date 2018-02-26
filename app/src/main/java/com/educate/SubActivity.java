@@ -1,4 +1,4 @@
-package com.careernavigation;
+package com.educate;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,13 +12,13 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class SubTwoActivity extends AppCompatActivity {
+public class SubActivity extends AppCompatActivity {
 
 
     RecyclerView mainRecyclerView;
 
     SearchView searchView;
-    SubTwoAdapter subTwoAdapter;
+    SubAdapter subAdapter;
     ArrayList<BasicModel> basicModels = new ArrayList<>();
     Toolbar toolbar;
     SampleData sampleData;
@@ -47,49 +47,37 @@ public class SubTwoActivity extends AppCompatActivity {
 
     private void initialiseData()
     {
-
         try {
-            if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_science))) {
-                basicModels = sampleData.subTwoAfterScience();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_arts))) {
-                basicModels = sampleData.subTwoAfterArts();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_commerce))) {
-                basicModels = sampleData.subTwoAfterCommerce();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_technical))) {
-                basicModels = sampleData.subTwoAfterTechnical();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_non_technical))) {
-                basicModels = sampleData.subTwoAfterNonTechnical();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_animation_and_mulitmedia))) {
-                basicModels = sampleData.subTwoAfterAnimationAndMultimedia();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_creative_and_working))) {
-                basicModels = sampleData.subTwoAfterCreativeWorking();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_digital_marketing))) {
-                basicModels = sampleData.subTwoAfterDigitalMarketing();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_seo))) {
-                basicModels = sampleData.subTwoAfterSEO();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_graphic_designer_course))) {
-                basicModels = sampleData.subTwoAfterGraphiDesignerCourses();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_webdesign_and_development_course))) {
-                basicModels = sampleData.subTwoAfterWebDesignAndDevelopmentCourses();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_appdevelopment_and_design_course))) {
-                basicModels = sampleData.subTwoAfterAppDevelopmentAndDesignCourses();
-            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.two_programming_languages))) {
-                basicModels = sampleData.subTwoAfterProgrammingLanguages();
-            }
 
+            if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.after_graduation))) {
+                basicModels = sampleData.afterGraduationData();
+            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.after_post_graduation))) {
+                basicModels = sampleData.afterPostGraduation();
+            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.top_colleges))) {
+                basicModels = sampleData.getTopColleges();
+            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.after_x))) {
+                basicModels = sampleData.afterSSC();
+            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.after_intermediate))) {
+                basicModels = sampleData.afterIntermediate();
+            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.top_universities))) {
+                basicModels = sampleData.topUniversities();
+            } else if (getIntent().getStringExtra("from").equalsIgnoreCase(getString(R.string.competitive_exams))) {
+                basicModels = sampleData.entranceExams();
+            }
         }catch (Exception e)
         {
             e.printStackTrace();
+
         }
     }
 
     private void initialiseRecyclerView(ArrayList<BasicModel> basicModels)
     {
-        subTwoAdapter = new SubTwoAdapter(basicModels,this);
+        subAdapter = new SubAdapter(basicModels,this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mainRecyclerView.setLayoutManager(linearLayoutManager);
         mainRecyclerView.setAdapter(null);
-        mainRecyclerView.setAdapter(subTwoAdapter);
+        mainRecyclerView.setAdapter(subAdapter);
     }
     private void initialiseIds()
     {
@@ -103,11 +91,10 @@ public class SubTwoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home)
         {
-/*
-            Intent intent = new Intent(this,MainActivity.class);
+      /*      Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
-*/
-finish();
+      */
+        finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -122,7 +109,7 @@ finish();
         settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                SampleData.showInfoDialog(SubTwoActivity.this);
+                SampleData.showInfoDialog(SubActivity.this);
                 return false;
             }
         });
@@ -132,15 +119,14 @@ finish();
         home.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Intent intent = new Intent(SubTwoActivity.this,MainActivity.class);
+                Intent intent = new Intent(SubActivity.this,MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
-                        Intent.FLAG_ACTIVITY_CLEAR_TASK|
-                        Intent.FLAG_ACTIVITY_NEW_TASK);
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK|
+                Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 return false;
             }
         });
-
 
         final MenuItem myActionMenuItem = menu.findItem( R.id.action_search);
         searchView = (SearchView) myActionMenuItem.getActionView();
@@ -148,7 +134,7 @@ finish();
             @Override
             public boolean onQueryTextSubmit(String query) {
                 // Toast like print
-                if( !searchView.isIconified()) {
+                if( ! searchView.isIconified()) {
                     searchView.setIconified(true);
                 }
                 myActionMenuItem.collapseActionView();
@@ -186,6 +172,5 @@ finish();
             initialiseRecyclerView(basicModels);
         }
     }
-
 
 }

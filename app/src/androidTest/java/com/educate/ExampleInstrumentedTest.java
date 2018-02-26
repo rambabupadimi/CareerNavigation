@@ -1,4 +1,4 @@
-package com.careernavigation;
+package com.educate;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

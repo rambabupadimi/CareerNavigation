@@ -1,7 +1,8 @@
-package com.careernavigation;
+package com.educate;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -21,14 +22,21 @@ public class SampleData {
 
 
 
-    public static void showInfoDialog(Context context) {
+    public static void showInfoDialog(final Context context) {
         try {
             final AlertDialog.Builder builder = new AlertDialog.Builder(context);
             final AlertDialog alertDialog = builder.create();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(R.layout.dialog_layout, null);
             TextView exit = (TextView) view.findViewById(R.id.exit);
+            TextView share = (TextView) view.findViewById(R.id.share);
 
+            share.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    shareTextUrl(context);
+                }
+            });
             exit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -45,6 +53,19 @@ public class SampleData {
     }
 
 
+    private static void shareTextUrl(Context context) {
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+        // Add data to the intent, the receiving app will decide
+        // what to do with it.
+        share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+        share.putExtra(Intent.EXTRA_TEXT, "http://www.codeofaninja.com");
+
+        context.startActivity(Intent.createChooser(share, "Share link!"));
+    }
+    
 
     public   ArrayList<BasicModel> getHomePageData()
     {
