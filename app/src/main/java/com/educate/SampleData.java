@@ -3,6 +3,8 @@ package com.educate;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -30,10 +32,28 @@ public class SampleData {
             View view = inflater.inflate(R.layout.dialog_layout, null);
             TextView exit = (TextView) view.findViewById(R.id.exit);
             TextView share = (TextView) view.findViewById(R.id.share);
+            TextView aboutUs = (TextView) view.findViewById(R.id.about_us);
 
+            TextView feedback = (TextView) view.findViewById(R.id.feedback);
+            feedback.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openFeedback(context);
+                }
+            });
+
+            aboutUs.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alertDialog.dismiss();
+                    Intent intent=new Intent(context,AboutUsActivity.class);
+                    context.startActivity(intent);
+                }
+            });
             share.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    alertDialog.dismiss();
                     shareTextUrl(context);
                 }
             });
@@ -53,6 +73,24 @@ public class SampleData {
     }
 
 
+    public static void openFeedback(Context paramContext) {
+        Intent localIntent = new Intent(Intent.ACTION_SEND);
+        localIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"babu.ramu111@gmail.com"});
+        localIntent.putExtra(Intent.EXTRA_CC, "");
+        String str = null;
+        try {
+            str = paramContext.getPackageManager().getPackageInfo(paramContext.getPackageName(), 0).versionName;
+            localIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for Your Android App");
+            localIntent.putExtra(Intent.EXTRA_TEXT, "\n\n----------------------------------\n Device OS: Android \n Device OS version: " +
+                    Build.VERSION.RELEASE + "\n App Version: " + str + "\n Device Brand: " + Build.BRAND +
+                    "\n Device Model: " + Build.MODEL + "\n Device Manufacturer: " + Build.MANUFACTURER);
+            localIntent.setType("message/rfc822");
+            paramContext.startActivity(Intent.createChooser(localIntent, "Choose an Email client :"));
+        } catch (Exception e) {
+            Log.d("OpenFeedback", e.getMessage());
+        }
+    }
+
     private static void shareTextUrl(Context context) {
         Intent share = new Intent(android.content.Intent.ACTION_SEND);
         share.setType("text/plain");
@@ -65,7 +103,7 @@ public class SampleData {
 
         context.startActivity(Intent.createChooser(share, "Share link!"));
     }
-    
+
 
     public   ArrayList<BasicModel> getHomePageData()
     {
