@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,54 +25,6 @@ public class SampleData {
 
 
 
-    public static void showInfoDialog(final Context context) {
-        try {
-            final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            final AlertDialog alertDialog = builder.create();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.dialog_layout, null);
-            TextView exit = (TextView) view.findViewById(R.id.exit);
-            TextView share = (TextView) view.findViewById(R.id.share);
-            TextView aboutUs = (TextView) view.findViewById(R.id.about_us);
-
-            TextView feedback = (TextView) view.findViewById(R.id.feedback);
-            feedback.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openFeedback(context);
-                }
-            });
-
-            aboutUs.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    alertDialog.dismiss();
-                    Intent intent=new Intent(context,AboutUsActivity.class);
-                    context.startActivity(intent);
-                }
-            });
-            share.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    alertDialog.dismiss();
-                    shareTextUrl(context);
-                }
-            });
-            exit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    alertDialog.dismiss();
-                }
-            });
-            alertDialog.setView(view);
-            alertDialog.show();
-            alertDialog.setCancelable(false);
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
 
     public static void openFeedback(Context paramContext) {
         Intent localIntent = new Intent(Intent.ACTION_SEND);
@@ -91,7 +44,7 @@ public class SampleData {
         }
     }
 
-    private static void shareTextUrl(Context context) {
+    public static void shareTextUrl(Context context) {
         Intent share = new Intent(android.content.Intent.ACTION_SEND);
         share.setType("text/plain");
         share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);

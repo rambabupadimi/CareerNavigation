@@ -1,5 +1,8 @@
 package com.educate;
 
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initialiseObjects();
         initialiseIds();
         initialiseData();
@@ -70,7 +74,12 @@ public class MainActivity extends AppCompatActivity {
         settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                SampleData.showInfoDialog(MainActivity.this);
+
+                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheetFragment();
+                bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+
+
+              //  SampleData.showInfoDialog(MainActivity.this);
                 return false;
             }
         });

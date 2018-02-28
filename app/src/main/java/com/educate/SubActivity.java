@@ -1,6 +1,9 @@
 package com.educate;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +31,8 @@ public class SubActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
+
+
         initialiseObjects();
         initialiseIds();
         initialiseData();
@@ -39,6 +44,11 @@ public class SubActivity extends AppCompatActivity {
     private void initialiseBackButton()
     {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        final Drawable upArrow = getResources().getDrawable(R.drawable.back);
+        upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+
     }
     private void initialiseObjects()
     {
@@ -109,7 +119,8 @@ public class SubActivity extends AppCompatActivity {
         settings.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                SampleData.showInfoDialog(SubActivity.this);
+                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomSheetFragment();
+                bottomSheetDialogFragment.show(getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                 return false;
             }
         });
