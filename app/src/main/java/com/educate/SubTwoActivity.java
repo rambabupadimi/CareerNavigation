@@ -1,6 +1,7 @@
 package com.educate;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -152,6 +153,12 @@ finish();
 
         final MenuItem myActionMenuItem = menu.findItem( R.id.action_search);
         searchView = (SearchView) myActionMenuItem.getActionView();
+        SearchView.SearchAutoComplete searchAutoComplete =
+                (SearchView.SearchAutoComplete)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        searchAutoComplete.setHintTextColor(Color.parseColor("#ffffff"));
+        searchAutoComplete.setTextColor(Color.parseColor("#ffffff"));
+
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -165,7 +172,6 @@ finish();
             @Override
             public boolean onQueryTextChange(String s) {
                 // UserFeedback.show( "SearchOnQueryTextChanged: " + s);
-
                 searchRecyclerview(s);
                 return false;
             }

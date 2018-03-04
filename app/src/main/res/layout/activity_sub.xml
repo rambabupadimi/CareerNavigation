@@ -13,6 +13,8 @@
         android:background="@color/colorPrimary"
         android:id="@+id/sub_toolbar"
         app:contentInsetStartWithNavigation="0dp"
+        app:collapseIcon="@drawable/back"
+
         >
 
         <RelativeLayout
@@ -48,6 +50,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/sub_recyclerview"></android.support.v7.widget.RecyclerView>
+        android:id="@+id/sub_recyclerview"
+        android:layout_marginBottom="48dp"></android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
